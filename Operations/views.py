@@ -7,3 +7,5 @@ def index(request):
         data=User(FirstNameF=request.POST["txtfname"],LastNameF=request.POST["txtlname"],EmailF=request.POST["txtemail"],PasswordF=request.POST["txtpassword"])
         data.save()
     return render(request,'index.html')
+def operations(request):
+    return render(request,'operations.html')
