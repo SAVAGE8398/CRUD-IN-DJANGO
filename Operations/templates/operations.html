@@ -22,15 +22,19 @@
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Password</th>
+                <th scope="col">Operations</th>
               </tr>
             </thead>
             <tbody>
+                {% for d in data %}
               <tr>
-                <td data-label="Account">Visa - 3412</td>
-                <td data-label="Due Date">04/01/2016</td>
-                <td data-label="Amount">$1,190</td>
-                <td data-label="Period">03/01/2016 - 03/31/2016</td>
+                <td data-label="Fname">{{d.FirstNameF}}</td>
+                <td data-label="Lname">{{d.LastNameF}}</td>
+                <td data-label="Email">{{d.EmailF}}</td>
+                <td data-label="Password">{{d.PasswordF}}</td>
+                <td data-label="Operations"><a href="Editrecord?d={{ d.id }}">Edit</a>||<a href="deleterecord?d={{ d.id }}">Delete</a></td>
               </tr>
+              {% endfor %}
               
             </tbody>
           </table>

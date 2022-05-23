@@ -8,4 +8,5 @@ def index(request):
         data.save()
     return render(request,'index.html')
 def operations(request):
-    return render(request,'operations.html')
+    data=User.objects.all()
+    return render(request,'operations.html',{"data":data})
