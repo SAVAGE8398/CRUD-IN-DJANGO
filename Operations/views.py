@@ -25,4 +25,8 @@ def edit(request):           #code to update record from database to contact tab
     s.PasswordF=d
     s.save()
     return redirect('operations')
+def deleterecord(request):
+    s=User.objects.get(pk=request.GET["f"])
+    s.delete()
+    return redirect('operations')
 
