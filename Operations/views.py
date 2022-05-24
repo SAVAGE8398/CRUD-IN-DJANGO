@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User
 
 # Create your views here.
@@ -10,3 +10,19 @@ def index(request):
 def operations(request):
     data=User.objects.all()
     return render(request,'operations.html',{"data":data})
+def editrecord(request):     
+    s=User.objects.get(pk=request.GET["f"])    
+    return render(request,"editrecord.html",{'res':s})
+def edit(request):           #code to update record from database to contact table
+    a=request.POST["txtfname"]
+    b=request.POST["txtlname"]
+    c=request.POST["txtemail"]
+    d=request.POST["txtpassword"]
+    s = User.objects.get(pk=request.POST["txtid"])
+    s.FirstNameF=a
+    s.LastNameF=b
+    s.EmailF=c
+    s.PasswordF=d
+    s.save()
+    return redirect('operations')
+
