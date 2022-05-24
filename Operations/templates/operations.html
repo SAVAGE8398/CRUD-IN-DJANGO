@@ -18,6 +18,7 @@
             <caption>Operations</caption>
             <thead>
               <tr>
+                <th scope="col">ID</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
@@ -28,6 +29,7 @@
             <tbody>
                 {% for d in data %}
               <tr>
+                <td data-label="ID">{{d.id}}</td>
                 <td data-label="Fname">{{d.FirstNameF}}</td>
                 <td data-label="Lname">{{d.LastNameF}}</td>
                 <td data-label="Email">{{d.EmailF}}</td>
